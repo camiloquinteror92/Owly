@@ -1,0 +1,14 @@
+{# templates/mostrar_proyecto.html #}
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Proyectos</h1>
+
+{% for proyecto in proyectos %}
+    <div class="proyecto">
+        <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.nombre }}">
+        <h2>{{ proyecto.nombre }}</h2>
+        <!-- Aquí puedes añadir más detalles del proyecto como características, avance de obra, etc. -->
+    </div>
+{% endfor %}
+{% endblock %}

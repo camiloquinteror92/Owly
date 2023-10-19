@@ -1,0 +1,160 @@
+Inmueble (Building/Property):
+ID del Inmueble (Primary Key)
+Nombre/Descripción
+Dirección (Una relación a la entidad Dirección)
+Valor (Price Range, eg. Min Value and Max Value)
+Tipo (eg. Casa, Apartamento)
+Estado (e.g., En Venta, Vendido)
+Características (Una relación a la entidad Características del Inmueble)
+Topologías (Una relación a la entidad Topología)
+Etiquetas (Una relación a la entidad Etiqueta)
+Imágenes (Una relación a la entidad Imagen)
+
+Topología:
+ID de Topología (Primary Key)
+Nombre
+Piso (Floor)
+Precio
+Descripción
+Cantidad de unidades
+Unidades vendidas
+Imágenes (Una relación a la entidad Imagen)
+
+Etiqueta (Tags/Label):
+ID de Etiqueta (Primary Key)
+Nombre
+Puntos asociados (e.g., Puntos Óptimos)
+
+Torre (Tower):
+ID de Torre (Primary Key)
+Nombre/Descripción
+Imágenes (Una relación a la entidad Imagen)
+Valor total del inmueble
+Propiedades asociadas (Una relación a la entidad Inmueble)
+
+Usuario:
+ID de Usuario (Primary Key)
+Nombre
+Email
+Teléfono
+Contraseña (hash)
+Rol (e.g., Admin, User)
+Inmuebles asociados (relación a Inmueble)
+
+Dirección:
+ID de Dirección (Primary Key)
+Calle
+Ciudad
+Región/Estado
+Código Postal
+País
+Coordenadas (Latitud, Longitud)
+
+Características del Inmueble:
+ID de Característica (Primary Key)
+Nombre (e.g., Piscina, Balcón, Jardín)
+Descripción
+Inmuebles asociados (Una relación a la entidad Inmueble)
+
+Imagen:
+ID de Imagen (Primary Key)
+Descripción
+Fecha de subida
+URL o ruta del archivo
+
+Actualización Masiva:
+ID de Actualización (Primary Key)
+Fecha
+Inmuebles actualizados (relación a Inmueble)
+
+Solicitud:
+ID de Solicitud (Primary Key)
+Usuario solicitante (relación a Usuario)
+Inmueble asociado (relación a Inmueble)
+Fecha
+Estado (e.g ., Pendiente, Aprobado, Rechazado)
+
+Ubicación:
+ID de Ubicación (Primary Key)
+Ciudad
+Región/Estado
+País
+Coordenadas (Latitud, Longitud)
+
+Historial de Precios:
+ID de Historial (Primary Key)
+Inmueble asociado (relación a Inmueble)
+Fecha
+Precio anterior
+Precio actualizado
+
+Agente Inmobiliario:
+ID de Agente (Primary Key)
+Nombre
+Contacto (Teléfono, Email)
+Inmuebles asignados (relación a Inmueble)
+Comisiones
+
+Reseñas y Comentarios:
+ID de Reseña (Primary Key)
+Usuario que comentó (relación a Usuario)
+Inmueble asociado (relación a Inmueble)
+Fecha
+Título
+Comentario
+Puntuación
+
+Promociones:
+ID de Promoción (Primary Key)
+Descripción
+Fecha de inicio
+Fecha de finalización
+Descuento o beneficio
+Inmuebles aplicables (relación a Inmueble)
+
+Reservaciones:
+ID de Reservación (Primary Key)
+Usuario que reservó (relación a Usuario)
+Inmueble asociado (relación a Inmueble)
+Fecha de reservación
+Fecha de visita
+Estado (e.g., Pendiente, Confirmada, Cancelada)
+
+Contratos:
+ID de Contrato (Primary Key)
+Inmueble asociado (relación a Inmueble)
+Usuario/Cliente asociado
+Agente Inmobiliario (relación a Agente Inmobiliario)
+Fecha de inicio
+Fecha de finalización
+Términos y condiciones
+
+Pagos:
+ID de Pago (Primary Key)
+Cantidad
+Fecha
+Método de pago (e.g., Transferencia, Tarjeta)
+Inmueble asociado (relación a Inmueble)
+Estado (e.g., Pendiente, Completado)
+
+Eventos/Notificaciones:
+ID del Evento (Primary Key)
+Descripción
+Fecha y hora
+Usuario asociado (relación a Usuario)
+Tipo (e.g., Alerta, Recordatorio)
+Prioridad/Severidad
+
+Favoritos:
+ID de Favorito (Primary Key)
+Usuario (relación a Usuario)
+Inmueble asociado (relación a Inmueble)
+Fecha de adición
+
+Documentos:
+ID de Documento (Primary Key)
+Nombre/Descripción
+Tipo (e.g., Contrato, Factura, Certificado)
+Fecha de subida
+Inmueble asociado (relación a Inmueble)
+Agente Inmobiliario asociado (si es aplicable)

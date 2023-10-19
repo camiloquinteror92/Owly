@@ -1,67 +1,134 @@
-
 from rest_framework import serializers
-from .models import Proyecto, Usuario, EmpresaVinculada, ZonaComun
-from .models import Etapa, Bloque, Unidad
+from .models import *
 
-class EmpresaVinculadaSerializer(serializers.ModelSerializer):
+class DireccionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EmpresaVinculada
+        model = Direccion
         fields = '__all__'
 
-class ZonaComunSerializer(serializers.ModelSerializer):
+class CaracteristicaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ZonaComun
+        model = Caracteristica
         fields = '__all__'
 
-class ProyectoSerializer(serializers.ModelSerializer):
-    empresas_vinculadas = EmpresaVinculadaSerializer(many=True, required=False)
-    zonas_comunes = ZonaComunSerializer(many=True, required=False)
-
+class InmuebleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Proyecto
+        model = Inmueble
         fields = '__all__'
 
-    def create(self, validated_data):
-        empresas_data = validated_data.pop('empresas_vinculadas', [])
-        zonas_data = validated_data.pop('zonas_comunes', [])
-        proyecto = Proyecto.objects.create(**validated_data)
+class TopologiaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tipologia
+        fields = '__all__'
 
-        for empresa_data in empresas_data:
-            EmpresaVinculada.objects.create(proyecto=proyecto, **empresa_data)
+class EtiquetaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Etiqueta
+        fields = '__all__'
 
-        for zona_data in zonas_data:
-            ZonaComun.objects.create(proyecto=proyecto, **zona_data)
-
-        return proyecto
+class TorreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Torre
+        fields = '__all__'
 
 class UsuarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usuario
+        exclude = ('contraseña',)
+
+class ImagenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Imagen
+        fields = '__all__'
+
+class ActualizaciónSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Actualizacion
+        fields = '__all__'
+
+class SolicitudSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Solicitud
+        fields = '__all__'
+
+class HistorialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Historial
+        fields = '__all__'
+
+class AgenteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Agente
+        fields = '__all__'
+
+class ResenaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resena
+        fields = '__all__'
+
+class PromocionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Promocion
+        fields = '__all__'
+
+class ReservacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reservacion
+        fields = '__all__'
+
+class ContratoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contrato
+        fields = '__all__'
+
+class PagoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pago
+        fields = '__all__'
+
+class EventoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Evento
+        fields = '__all__'
+
+class FavoritoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorito
+        fields = '__all__'
+
+class DocumentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Documento
+        fields = '__all__'
+
+class APIKeySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = APIKey
         fields = '__all__'
 
 
+class ConstructoraSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Constructora
+        fields = '__all__'
+
+class AvanceDeObraSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AvanceDeObra
+        fields = '__all__'
+
+class ProyectoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Proyecto
+        fields = '__all__'
 
 class EtapaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Etapa
         fields = '__all__'
 
-class BloqueSerializer(serializers.ModelSerializer):
+class EmpresaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Bloque
+        model = Empresa
         fields = '__all__'
 
-#class NivelSerializer(serializers.ModelSerializer):
-    #class Meta:
-        #model = Nivel
-        #fields = '__all__'
-
-#class EstiloSerializer(serializers.ModelSerializer):
-    #class Meta:
-        #model = Estilo
-        #fields = '__all__'
-
-class UnidadSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Unidad
-        fields = '__all__'

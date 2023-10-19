@@ -1,0 +1,15 @@
+{# templates/seleccionar_constructora.html #}
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Seleccionar Constructora</h1>
+
+<form action="{% url 'mostrar_proyectos_constructora' %}" method="get">
+    <select name="constructora_id">
+        {% for constructora in constructoras %}
+            <option value="{{ constructora.id }}">{{ constructora.nombre }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Ver Proyectos">
+</form>
+{% endblock %}

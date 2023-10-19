@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 proyecto">
+    <div class="row">
+        <!-- Project logo and name -->
+        <div class="col-md-3">
+            <img src="{{ proyecto.logo.url }}" alt="{{ proyecto.nombre }}" class="project-logo img-fluid mb-3">
+            <h2>{{ proyecto.nombre }}</h2>
+        </div>
+        <!-- Project image -->
+        <div class="col-md-9">
+            <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.nombre }}" class="project-image img-fluid">
+        </div>
+    </div>
+
+    <!-- Project details -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <h3>Constructora</h3>
+            <p>{{ proyecto.constructora.nombre }}</p>
+            <h3>Precio más barato de los apartamentos</h3>
+            <p>{{ cheapest_apartment_price }}</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Características</h3>
+            <ul>
+            {% for caracteristica in proyecto.caracteristicas.all %}
+                <li>{{ caracteristica.descripcion }}</li>
+            {% endfor %}
+                <li>{{ caracteristica.descripcion }}</li>
+            
+            </ul>
+            <h3>Empresas Asociadas</h3>
+            <ul>
+            {% for empresa in proyecto.Empresa.all %}
+                <li>
+                    <img src="{{ empresa.logo.url }}" alt="{{ empresa.nombre }}" class="company-logo"> {{ empresa.nombre }}
+                </li>
+            {% endfor %}
+                <li>
+                    <img src="{{ empresa.logo.url }}" alt="{{ empresa.nombre }}" class="company-logo"> {{ empresa.nombre }}
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+
+<!-- Construction Progress -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h3>Avance de Obra</h3>
+            
+            <!-- Demolición -->
+            <div class="progress-label">Demolición</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" 
+                     style="width: {{ avance_de_obra.demolicion }}%;" 
+                     aria-valuenow="{{ avance_de_obra.demolicion }}" 
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.demolicion }}%
+                </div>
+            </div>
+            
+            <!-- Excavación -->
+            <div class="progress-label">Excavación</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" 
+                     style="width: {{ avance_de_obra.excavacion }}%;" 
+                     aria-valuenow="{{ avance_de_obra.excavacion }}" 
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.excavacion }}%
+                </div>
+            </div>
+            
+            <!-- Estructura -->
+            <div class="progress-label">Estructura</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" 
+                     style="width: {{ avance_de_obra.estructura }}%;" 
+                     aria-valuenow="{{ avance_de_obra.estructura }}" 
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.estructura }}%
+                </div>
+            </div>
+            
+            <!-- Agrega el resto de campos de avance de obra de manera similar -->
+        
+        </div>
+    </div>
+</div>
+
+
+    <!-- Available Properties -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <h3>Inmuebles Disponibles</h3>
+                <ul>
+                  {% for inmueble in inmuebles %}
+                    <li>
+                      <a href="{% url 'inmueble_details' inmueble.id %}">{{ inmueble.nombre_descripcion }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

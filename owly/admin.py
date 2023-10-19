@@ -1,64 +1,117 @@
 from django.contrib import admin
-from .models import Constructora, Proyecto, Usuario, EmpresaVinculada, ZonaComun, Etapa, Bloque, Unidad, Tipo
+from .models import *
+from .models import Torre
+from .forms import TorreForm
 
-@admin.register(Proyecto)
-class ProyectoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre_corto']
-    search_fields = ['nombre_corto']
+
+@admin.register(Inmueble)
+class InmuebleAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Inmueble._meta.fields]
+
+@admin.register(Tipologia)
+class TopologíaAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Tipologia._meta.fields]
+
+@admin.register(Etiqueta)
+class EtiquetaAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Etiqueta._meta.fields]
+
+
+class TorreAdmin(admin.ModelAdmin):
+    form = TorreForm
+    list_display = ('nombre_descripcion', 'Etapa')
+    search_fields = ('nombre_descripcion', 'Etapa__nombre')
+    list_filter = ('Etapa__proyecto__nombre',)
+
+# Registra el modelo Torre y la clase personalizada del administrador
+admin.site.register(Torre, TorreAdmin)
+
 
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre', 'apellido']
-    search_fields = ['nombre', 'apellido']
+    list_display = [field.name for field in Usuario._meta.fields]
 
-@admin.register(EmpresaVinculada)
-class EmpresaVinculadaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre', 'rol']
-    search_fields = ['nombre']
+@admin.register(Direccion)
+class DirecciónAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Direccion._meta.fields]
 
-@admin.register(ZonaComun)
-class ZonaComunAdmin(admin.ModelAdmin):
-    list_display = ['id', 'descripcion', 'slogan']
-    search_fields = ['descripcion']
+@admin.register(Caracteristica)
+class CaracterísticasAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Caracteristica._meta.fields]
 
-@admin.register(Etapa)
-class EtapaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'numero_de_etapa', 'tipo_de_bloque']
-    search_fields = ['tipo_de_bloque']
+@admin.register(Imagen)
+class ImagenAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Imagen._meta.fields]
 
-@admin.register(Bloque)
-class BloqueAdmin(admin.ModelAdmin):
-    list_display = ['id', 'descripcion', 'slogan']
-    search_fields = ['descripcion']
+@admin.register(Actualizacion)
+class ActualizaciónAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Actualizacion._meta.fields]
 
-#@admin.register(Nivel)
-#class NivelAdmin(admin.ModelAdmin):
-#    list_display = ['id']
+@admin.register(Solicitud)
+class SolicitudAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Solicitud._meta.fields]
 
-#@admin.register(Estilo)
-#class EstiloAdmin(admin.ModelAdmin):
-#    list_display = ['id']
+@admin.register(Historial)
+class HistorialAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Historial._meta.fields]
 
-@admin.register(Unidad)
-class UnidadAdmin(admin.ModelAdmin):
-    list_display = ['id', 'estatus', 'piso']
-    search_fields = ['estatus']
+@admin.register(Agente)
+class AgenteAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Agente._meta.fields]
+
+@admin.register(Resena)
+class ReseñasAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Resena._meta.fields]
+
+@admin.register(Promocion)
+class PromocionesAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Promocion._meta.fields]
+
+@admin.register(Reservacion)
+class ReservacionesAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Reservacion._meta.fields]
+
+@admin.register(Contrato)
+class ContratosAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Contrato._meta.fields]
+
+@admin.register(Pago)
+class PagosAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Pago._meta.fields]
+
+@admin.register(Evento)
+class EventosAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Evento._meta.fields]
+
+@admin.register(Favorito)
+class FavoritosAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Favorito._meta.fields]
+
+@admin.register(Documento)
+class DocumentosAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Documento._meta.fields]
+
+@admin.register(APIKey)
+class APIKeyAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in APIKey._meta.fields]
 
 @admin.register(Constructora)
 class ConstructoraAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre']
-    search_fields = ['nombre']
+    list_display = [field.name for field in Constructora._meta.fields]
 
-from django.contrib import admin
-from .models import Tipo
+@admin.register(AvanceDeObra)
+class AvanceDeObraAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in AvanceDeObra._meta.fields]
 
-from django.contrib import admin
-from .models import Tipo
+@admin.register(Proyecto)
+class ProyectoAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Proyecto._meta.fields]
 
-@admin.register(Tipo)
-class TipoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nombre']
-    list_filter = []  # Asegúrate de que los campos aquí sean válidos para tu modelo Tipo
+@admin.register(Etapa)
+class EtapaAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Etapa._meta.fields]
 
-# Registrar otros modelos en el admin si es necesario.
+@admin.register(Empresa)
+class EmpresaAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Empresa._meta.fields]
 

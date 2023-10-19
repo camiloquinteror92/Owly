@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 inmueble-details">
+    <!-- Otra información del inmueble -->
+    <h2>{{ inmueble.nombre_descripcion }}</h2>
+    <h4>{{ inmueble.estado }}</h4>
+    
+    <!-- Mostrar imágenes del inmueble -->
+    <div class="row">
+        {% for imagen in imagenes %}
+        <div class="col-md-4">
+            <img src="{{ imagen.imagen.url }}" alt="{{ inmueble.nombre_descripcion }}" class="img-fluid mb-3">
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Otra información del inmueble, como características, etiquetas, etc. -->
+    <!-- ... -->
+</div>
+{% endblock %}
