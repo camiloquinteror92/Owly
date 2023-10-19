@@ -51,45 +51,109 @@
     <div class="row">
         <div class="col-12">
             <h3>Avance de Obra</h3>
-            
+
             <!-- Demolición -->
             <div class="progress-label">Demolición</div>
             <div class="progress">
-                <div class="progress-bar" role="progressbar" 
-                     style="width: {{ avance_de_obra.demolicion }}%;" 
-                     aria-valuenow="{{ avance_de_obra.demolicion }}" 
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.demolicion }}%;"
+                     aria-valuenow="{{ avance_de_obra.demolicion }}"
                      aria-valuemin="0" aria-valuemax="100">
                     {{ avance_de_obra.demolicion }}%
                 </div>
             </div>
-            
+
             <!-- Excavación -->
             <div class="progress-label">Excavación</div>
             <div class="progress">
-                <div class="progress-bar" role="progressbar" 
-                     style="width: {{ avance_de_obra.excavacion }}%;" 
-                     aria-valuenow="{{ avance_de_obra.excavacion }}" 
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.excavacion }}%;"
+                     aria-valuenow="{{ avance_de_obra.excavacion }}"
                      aria-valuemin="0" aria-valuemax="100">
                     {{ avance_de_obra.excavacion }}%
                 </div>
             </div>
-            
+
             <!-- Estructura -->
             <div class="progress-label">Estructura</div>
             <div class="progress">
-                <div class="progress-bar" role="progressbar" 
-                     style="width: {{ avance_de_obra.estructura }}%;" 
-                     aria-valuenow="{{ avance_de_obra.estructura }}" 
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.estructura }}%;"
+                     aria-valuenow="{{ avance_de_obra.estructura }}"
                      aria-valuemin="0" aria-valuemax="100">
                     {{ avance_de_obra.estructura }}%
                 </div>
             </div>
-            
-            <!-- Agrega el resto de campos de avance de obra de manera similar -->
-        
+
+            <!-- Fachada -->
+            <div class="progress-label">Fachada</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.fachada }}%;"
+                     aria-valuenow="{{ avance_de_obra.fachada }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.fachada }}%
+                </div>
+            </div>
+
+            <!-- Hidráulica -->
+            <div class="progress-label">Hidráulica</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.hidraulica }}%;"
+                     aria-valuenow="{{ avance_de_obra.hidraulica }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.hidraulica }}%
+                </div>
+            </div>
+
+            <!-- Eléctrica -->
+            <div class="progress-label">Eléctrica</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.electrica }}%;"
+                     aria-valuenow="{{ avance_de_obra.electrica }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.electrica }}%
+                </div>
+            </div>
+
+            <!-- Extracción -->
+            <div class="progress-label">Extracción</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.extraccion }}%;"
+                     aria-valuenow="{{ avance_de_obra.extraccion }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.extraccion }}%
+                </div>
+            </div>
+
+            <!-- Mampostería Liviana -->
+            <div class="progress-label">Mampostería Liviana</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.mamposteria_liviana }}%;"
+                     aria-valuenow="{{ avance_de_obra.mamposteria_liviana }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.mamposteria_liviana }}%
+                </div>
+            </div>
+
+            <!-- Avance Total -->
+            <div class="progress-label">Avance Total</div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar"
+                     style="width: {{ avance_de_obra.avance_total }}%;"
+                     aria-valuenow="{{ avance_de_obra.avance_total }}"
+                     aria-valuemin="0" aria-valuemax="100">
+                    {{ avance_de_obra.avance_total }}%
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 
     <!-- Available Properties -->

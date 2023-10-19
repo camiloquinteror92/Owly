@@ -244,27 +244,32 @@ def crear_torre(request):
 def proyecto_homepage(request, pk):
     # Recuperar el proyecto específico basado en el ID proporcionado (pk)
     proyecto = get_object_or_404(Proyecto, id=pk)
-    
+
     # Obtener la etapa asociada con el proyecto
     etapa = proyecto.etapa_set.first()  # Aquí asumo que un proyecto tiene una única etapa, ajusta según tu modelo
-    
+
     # Obtener las torres asociadas con la etapa
     torres = Torre.objects.filter(Etapa=etapa)
-    
+
     # Obtener los inmuebles asociados con las torres
     inmuebles = Inmueble.objects.filter(torre__in=torres)
-    
+
     # TODO: Determinar el precio más barato del apartamento. Esta lógica dependerá de tus modelos y datos.
     cheapest_apartment_price = None  # Valor de marcador de posición
-    
+
     # Obtener los datos de avance de obra asociados con el proyecto
     avance_de_obra = {
         'demolicion': proyecto.avance_obra.demolicion,
         'excavacion': proyecto.avance_obra.excavacion,
         'estructura': proyecto.avance_obra.estructura,
-        # ... (agrega los otros campos de avance de obra)
+        'fachada': proyecto.avance_obra.fachada,
+        'hidraulica': proyecto.avance_obra.hidraulica,
+        'electrica': proyecto.avance_obra.electrica,
+        'extraccion': proyecto.avance_obra.extraccion,
+        'mamposteria_liviana': proyecto.avance_obra.mamposteria_liviana,
+        'avance_total': proyecto.avance_obra.avance_total,
     }
-    
+
     # Pasar los datos del proyecto, inmuebles, precio más barato y avance de obra a la plantilla
     context = {
         'proyecto': proyecto,

@@ -44,7 +44,7 @@ class AvanceDeObra(models.Model):
 
     def __str__(self):
        return f"{self.nombre} - Demolicion: {self.demolicion}% | Excavacion: {self.excavacion}% | Estructura: {self.estructura}% | Fachada: {self.fachada}% | Hidraulica: {self.hidraulica}% | Electrica: {self.electrica}% | Extraccion: {self.extraccion}% | Mamposteria Liviana: {self.mamposteria_liviana}% | Avance Total: {self.avance_total}%"
-# views.py - Vista proyecto_homepage
+
 
 class Direccion(models.Model):
     ciudad = models.CharField(max_length=255)
