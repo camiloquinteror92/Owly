@@ -45,20 +45,20 @@
 
 /* New styles for project logo, project image, and company logos */
 .project-logo {
-    width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 75px;
     object-fit: contain;
 }
 
 .project-image {
-    width: 300px;
-    height: 200px;
+    width: 600px;
+    height: 400px;
     object-fit: cover;
 }
 
 .company-logo {
-    width: 60px;
-    height: 30px;
+    width: 120px;
+    height: 60px;
     object-fit: contain;
 }
 
@@ -79,7 +79,7 @@
     line-height: 20px;
     color: white;
     font-weight: bold;
-    background-color: #4CAF50; /* Change this color to adjust the progress bar color */
+    background-color: #af4ca2; /* Change this color to adjust the progress bar color */
 }
 
 /* New styles for inmuebles */
@@ -120,3 +120,59 @@
 .contact-info {
     margin-top: 20px;
 }
+
+
+/* Basic styling for the container */
+.container {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the inmueble details */
+.inmueble-details .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.inmueble-details .card-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.inmueble-details .card-subtitle {
+    font-size: 18px;
+}
+
+.inmueble-details .card-text {
+    font-size: 16px;
+}
+
+/* Styling for badges */
+.badge {
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Styling for the images */
+.img-fluid {
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
+/* List styling for characteristics */
+.inmueble-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.inmueble-details ul li {
+    font-size: 16px;
+    padding: 5px 0;
+}
+

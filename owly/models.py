@@ -134,10 +134,11 @@ class Tipologia(models.Model):
     nombre = models.CharField(max_length=255)
     descripcion = models.CharField(max_length=255)
     cantidad = models.IntegerField()
-    imagenes = models.ManyToManyField(Imagen)
+    imagen = models.ForeignKey(Imagen, on_delete=models.CASCADE)  # ForeignKey to the Imagen model
 
     def __str__(self):
         return self.nombre
+
 
 class Torre(models.Model):
     nombre_descripcion = models.CharField(max_length=255)

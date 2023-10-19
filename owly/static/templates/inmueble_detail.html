@@ -1,21 +1,67 @@
+
 {% extends "base.html" %}
 
 {% block content %}
 <div class="container mt-5 inmueble-details">
-    <!-- Otra información del inmueble -->
-    <h2>{{ inmueble.nombre_descripcion }}</h2>
-    <h4>{{ inmueble.estado }}</h4>
-    
-    <!-- Mostrar imágenes del inmueble -->
-    <div class="row">
-        {% for imagen in imagenes %}
+
+    <!-- Basic Information -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">{{ inmueble.nombre_descripcion }}</h2>
+            <h4 class="card-subtitle mb-2 text-muted">{{ inmueble.estado }}</h4>
+            <p class="card-text">
+                Valor: ${{ inmueble.valor }}<br>
+                Habitaciones: {{ inmueble.habitaciones }}<br>
+                Piso: {{ inmueble.piso }}<br>
+                Baños: {{ inmueble.baños }}<br>
+            </p>
+            <p class="card-text">
+                {% if inmueble.terraza %}
+                <span class="badge bg-success">Tiene terraza</span>
+                {% endif %}
+                {% if inmueble.externo %}
+                <span class="badge bg-info">Externo</span>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+    <!-- Images -->
+    <div class="row mb-4">
+        {% for imagen in inmueble.imagenes.all %}
         <div class="col-md-4">
             <img src="{{ imagen.imagen.url }}" alt="{{ inmueble.nombre_descripcion }}" class="img-fluid mb-3">
         </div>
         {% endfor %}
     </div>
-    
-    <!-- Otra información del inmueble, como características, etiquetas, etc. -->
-    <!-- ... -->
+
+    <!-- Tipologia Image -->
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title">Tipología: {{ inmueble.tipologia.nombre }}</h5>
+            <img src="{{ inmueble.tipologia.imagen.imagen.url }}" alt="{{ inmueble.tipologia.nombre }}" class="img-fluid mb-3">
+            <p class="card-text">{{ inmueble.tipologia.descripcion }}</p>
+        </div>
+    </div>
+
+    <!-- Other information -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Características</h5>
+            <ul>
+                {% for caracteristica in inmueble.caracteristicas.all %}
+                <li>{{ caracteristica }}</li>
+                {% endfor %}
+            </ul>
+            <p>Tipología: {{ inmueble.tipologia }}</p>
+            <p>Etiquetas: 
+                {% for etiqueta in inmueble.etiquetas.all %}
+                <span class="badge bg-secondary">{{ etiqueta }}</span>
+                {% endfor %}
+            </p>
+            <p>Torre asociada: {{ inmueble.torre }}</p>
+        </div>
+    </div>
+
 </div>
 {% endblock %}
