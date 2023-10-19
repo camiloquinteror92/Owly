@@ -1,5 +1,7 @@
-
-/* Custom styles for the project homepage */
+/* Basic styling for the container */
+.container {
+    font-family: 'Arial', sans-serif;
+}
 
 /* Logo and Project Name */
 .proyecto img {
@@ -29,21 +31,17 @@
     font-weight: lighter;
 }
 
-/* Using Bootstrap utility classes for additional styling */
-.mt-5 {
-    margin-top: 3rem !important;
-}
-
-.mb-3 {
-    margin-bottom: 1rem !important;
-}
-
 .img-fluid {
     max-width: 100%;
     height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
-/* New styles for project logo, project image, and company logos */
+.img-fluid:hover {
+    transform: scale(1.05);
+}
+
 .project-logo {
     width: 150px;
     height: 75px;
@@ -51,14 +49,14 @@
 }
 
 .project-image {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
 }
 
 .company-logo {
-    width: 120px;
-    height: 60px;
+    width: 90px;
+    height: 45px;
     object-fit: contain;
 }
 
@@ -79,100 +77,5 @@
     line-height: 20px;
     color: white;
     font-weight: bold;
-    background-color: #af4ca2; /* Change this color to adjust the progress bar color */
+    background-color: #af4ca2;
 }
-
-/* New styles for inmuebles */
-.inmueble-details {
-    padding: 20px;
-}
-
-.inmueble h2 {
-    font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-}
-
-/* Inmueble specifications */
-.inmueble h3 {
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.inmueble ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.inmueble ul li {
-    padding: 5px 0;
-    font-weight: lighter;
-}
-
-/* Inmueble images */
-.inmueble-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-}
-
-/* Contact information */
-.contact-info {
-    margin-top: 20px;
-}
-
-
-/* Basic styling for the container */
-.container {
-    font-family: 'Arial', sans-serif;
-}
-
-/* Styling for the inmueble details */
-.inmueble-details .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.inmueble-details .card-title {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.inmueble-details .card-subtitle {
-    font-size: 18px;
-}
-
-.inmueble-details .card-text {
-    font-size: 16px;
-}
-
-/* Styling for badges */
-.badge {
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-/* Styling for the images */
-.img-fluid {
-    max-width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s;
-}
-
-.img-fluid:hover {
-    transform: scale(1.05);
-}
-
-/* List styling for characteristics */
-.inmueble-details ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.inmueble-details ul li {
-    font-size: 16px;
-    padding: 5px 0;
-}
-

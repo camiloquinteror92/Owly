@@ -30,7 +30,9 @@
     <div class="row mb-4">
         {% for imagen in inmueble.imagenes.all %}
         <div class="col-md-4">
-            <img src="{{ imagen.imagen.url }}" alt="{{ inmueble.nombre_descripcion }}" class="img-fluid mb-3">
+            <a href="{{ imagen.imagen.url }}" data-lightbox="inmueble-imagenes">
+                <img src="{{ imagen.imagen.url }}" alt="{{ inmueble.nombre_descripcion }}" class="img-fluid mb-3">
+            </a>
         </div>
         {% endfor %}
     </div>

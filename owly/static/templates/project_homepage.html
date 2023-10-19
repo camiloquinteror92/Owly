@@ -2,15 +2,19 @@
 
 {% block content %}
 <div class="container mt-5 proyecto">
+    <!-- Project logo and name -->
     <div class="row">
-        <!-- Project logo and name -->
         <div class="col-md-3">
-            <img src="{{ proyecto.logo.url }}" alt="{{ proyecto.nombre }}" class="project-logo img-fluid mb-3">
+            <a href="{{ proyecto.logo.url }}" data-lightbox="proyecto-logo">
+                <img src="{{ proyecto.logo.url }}" alt="{{ proyecto.nombre }}" class="project-logo img-fluid mb-3">
+            </a>
             <h2>{{ proyecto.nombre }}</h2>
         </div>
         <!-- Project image -->
         <div class="col-md-9">
-            <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.nombre }}" class="project-image img-fluid">
+            <a href="{{ proyecto.imagen.url }}" data-lightbox="proyecto-imagen">
+                <img src="{{ proyecto.imagen.url }}" alt="{{ proyecto.nombre }}" class="project-image img-fluid">
+            </a>
         </div>
     </div>
 
