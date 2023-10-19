@@ -148,14 +148,19 @@ class Torre(models.Model):
         return self.nombre_descripcion
     
 class Inmueble(models.Model):
+    ESTADO_CHOICES = [
+        ('disponible', 'Disponible'),
+        ('vendido', 'Vendido'),
+    ]
+
     nombre_descripcion = models.CharField(max_length=255)
     valor = models.DecimalField(max_digits=24, decimal_places=2)
     habitaciones = models.IntegerField()
     piso = models.IntegerField()
     baños = models.DecimalField(max_digits=3, decimal_places=1)
     terraza = models.BooleanField()
-    externo = models.BooleanField ()
-    estado = models.CharField(max_length=255)
+    externo = models.BooleanField()
+    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES, default='disponible')
     caracteristicas = models.ManyToManyField(Caracteristica)
     tipologia = models.ForeignKey(Tipologia, on_delete=models.CASCADE)
     etiquetas = models.ManyToManyField(Etiqueta)
@@ -164,6 +169,7 @@ class Inmueble(models.Model):
     
     def __str__(self):
         return self.nombre_descripcion
+
     
 
 class Actualizacion(models.Model):
